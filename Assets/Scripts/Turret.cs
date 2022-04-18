@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class Turret : MonoBehaviour
 {
@@ -7,14 +6,14 @@ public class Turret : MonoBehaviour
     public float range = 15f;
     public float turnSpeed = 5f;
     public float fireRate = 1f;
-    private float _fireCountdown;
 
     [Header("Unity Setup fields")]
     public string enemyTag = "Enemy";
-    [FormerlySerializedAs("parteToRotate")] public Transform partToRotate;
-    private Transform _target;
+    public Transform partToRotate;
     public GameObject projectile;
     public Transform firePoint;
+    private float _fireCountdown;
+    private Transform _target;
 
     private void Start()
     {
@@ -43,12 +42,9 @@ public class Turret : MonoBehaviour
 
     private void Shoot()
     {
-        var bulletGameObject = Instantiate(projectile, firePoint.position,firePoint.rotation);
+        var bulletGameObject = Instantiate(projectile, firePoint.position, firePoint.rotation);
         var bullet = bulletGameObject.GetComponent<Bullet>();
-        if(bullet!=null)
-        {
-            bullet.Target = _target;
-        }
+        if (bullet != null) bullet.Target = _target;
     }
 
     private void FaceTarget()
