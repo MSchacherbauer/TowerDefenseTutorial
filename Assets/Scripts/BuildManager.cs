@@ -1,28 +1,22 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BuildManager : MonoBehaviour
 {
     public static BuildManager Instance;
-    
-    void Awake()
-    {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-    }
 
     public GameObject standardTurretPrefab;
 
-    void Start()
+    private GameObject _turretToBuild;
+
+    private void Awake()
+    {
+        if (Instance == null) Instance = this;
+    }
+
+    private void Start()
     {
         _turretToBuild = standardTurretPrefab;
     }
-
-    private GameObject _turretToBuild;
 
     public GameObject GetTurretToBuild()
     {
