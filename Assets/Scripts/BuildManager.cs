@@ -1,11 +1,13 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class BuildManager : MonoBehaviour
 {
     public static BuildManager Instance;
 
     public GameObject standardTurretPrefab;
-
+    [FormerlySerializedAs("anotherTurretPrefab")]
+    public GameObject missileLauncherPrefab;
     private GameObject _turretToBuild;
 
     private void Awake()
@@ -13,9 +15,9 @@ public class BuildManager : MonoBehaviour
         if (Instance == null) Instance = this;
     }
 
-    private void Start()
+    public void SetTurretToBuild(GameObject turret)
     {
-        _turretToBuild = standardTurretPrefab;
+        _turretToBuild = turret;
     }
 
     public GameObject GetTurretToBuild()
