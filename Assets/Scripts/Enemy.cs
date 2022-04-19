@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    public const string EnemyTag = "Enemy";
     public float speed = 10f;
-
     private Transform _target;
     private int _waypointIndex;
 

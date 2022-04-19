@@ -8,7 +8,6 @@ public class Turret : MonoBehaviour
     public float fireRate = 1f;
 
     [Header("Unity Setup fields")]
-    public string enemyTag = "Enemy";
     public Transform partToRotate;
     public GameObject projectile;
     public Transform firePoint;
@@ -57,7 +56,7 @@ public class Turret : MonoBehaviour
 
     private void UpdateTarget()
     {
-        var enemies = GameObject.FindGameObjectsWithTag(enemyTag);
+        var enemies = GameObject.FindGameObjectsWithTag(Enemy.EnemyTag);
         var minDistance = Mathf.Infinity;
         GameObject closestEnemy = null;
         foreach (var enemy in enemies)

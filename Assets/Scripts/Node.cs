@@ -4,7 +4,7 @@ using UnityEngine.EventSystems;
 public class Node : MonoBehaviour
 {
     public Color hoverColor;
-    private readonly Vector3 buildOffset = new(0, 0.5f, 0);
+    private readonly Vector3 _buildOffset = new(0, 0.5f, 0);
     private BuildManager _buildManager;
     private Color _defaultColor;
     private Renderer _renderer;
@@ -29,7 +29,7 @@ public class Node : MonoBehaviour
         if (turretToBuild != null)
         {
             var transform1 = transform;
-            _turret = Instantiate(turretToBuild, transform1.position + buildOffset, transform1.rotation);
+            _turret = Instantiate(turretToBuild, transform1.position + _buildOffset, transform1.rotation);
         }
         else
         {

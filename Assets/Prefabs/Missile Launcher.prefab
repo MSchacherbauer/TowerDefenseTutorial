@@ -199,7 +199,7 @@ MonoBehaviour:
   fireRate: 0.25
   enemyTag: Enemy
   partToRotate: {fileID: 4652911723777149429}
-  projectile: {fileID: 9122712303211650092, guid: 55de2368024fc0843ac3168f7d726357, type: 3}
+  projectile: {fileID: 7116345639698481739, guid: 17c903a8b3115cd4291394f0f7026fff, type: 3}
   firePoint: {fileID: 3313158364163309890}
 --- !u!1 &5595320697120632733
 GameObject:
