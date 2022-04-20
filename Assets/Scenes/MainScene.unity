@@ -6436,6 +6436,24 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 633557211307160703, guid: 6cf7f0dbf3c863549adf41b8705e04c0, type: 3}
   m_PrefabInstance: {fileID: 912305959}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &930453843 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4256230092147472252, guid: dd1726e4daaf57d41a78f505e971e4fb, type: 3}
+  m_PrefabInstance: {fileID: 4256230091103864534}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &930453847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 930453843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a44036d2a9a6d8744887c8375fb9f9ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startMoney: 400
 --- !u!1001 &931590601
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14778,6 +14796,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1085756043}
     m_Modifications:
+    - target: {fileID: 408221873097449385, guid: 7a7458389fcea9543b58f3e07feaebce, type: 3}
+      propertyPath: standardTurret.cost
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 408221873097449385, guid: 7a7458389fcea9543b58f3e07feaebce, type: 3}
+      propertyPath: missileLauncher.cost
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 6256032533702101638, guid: 7a7458389fcea9543b58f3e07feaebce, type: 3}
       propertyPath: m_Name
       value: Shop
@@ -14936,7 +14962,7 @@ PrefabInstance:
       objectReference: {fileID: 6256032534357198834}
     - target: {fileID: 8526319183563657774, guid: 7a7458389fcea9543b58f3e07feaebce, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PurchaseMissileLauncher
+      value: SelectMissileLauncher
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a7458389fcea9543b58f3e07feaebce, type: 3}

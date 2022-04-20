@@ -1,10 +1,12 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Bullet : MonoBehaviour
 {
     public float speed = 70f;
     public GameObject impactEffect;
-    public float ExplosionRadius = 5f;
+    [FormerlySerializedAs("ExplosionRadius")]
+    public float explosionRadius = 5f;
     public Transform Target { get; set; }
 
 
@@ -30,14 +32,14 @@ public class Bullet : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, ExplosionRadius);
+        Gizmos.DrawWireSphere(transform.position, explosionRadius);
     }
 
     private void HitTarget()
     {
         var impactEffectInstance = Instantiate(impactEffect, transform.position, transform.rotation);
         Destroy(impactEffectInstance, 2f);
-        if (ExplosionRadius > 0f)
+        if (explosionRadius > 0f)
             Explode();
         else
             Damage();
@@ -46,7 +48,7 @@ public class Bullet : MonoBehaviour
 
     private void Explode()
     {
-        foreach (var objectsInSphere in Physics.OverlapSphere(transform.position, ExplosionRadius))
+        foreach (var objectsInSphere in Physics.OverlapSphere(transform.position, explosionRadius))
             if (objectsInSphere.tag.Equals(Enemy.EnemyTag))
                 Destroy(objectsInSphere.gameObject);
     }

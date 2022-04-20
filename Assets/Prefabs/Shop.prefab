@@ -122,9 +122,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 408221873097449385}
         m_TargetAssemblyTypeName: Shop, Assembly-CSharp
-        m_MethodName: PurchaseMissileLauncher
+        m_MethodName: SelectMissileLauncher
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -272,6 +272,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf3204887a778e848aa42341588e107e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  standardTurret:
+    prefab: {fileID: 3823144712712559366, guid: f342ff4d171446847bc943f868f84b51, type: 3}
+    cost: 5
+  missileLauncher:
+    prefab: {fileID: 5499774059401949322, guid: 3c0206106a390134b891f482269a516d, type: 3}
+    cost: 10
 --- !u!1 &6256032534936011908
 GameObject:
   m_ObjectHideFlags: 0
@@ -396,7 +402,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 408221873097449385}
         m_TargetAssemblyTypeName: Shop, Assembly-CSharp
-        m_MethodName: PurchaseStandardTurret
+        m_MethodName: SelectStandardTurret
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

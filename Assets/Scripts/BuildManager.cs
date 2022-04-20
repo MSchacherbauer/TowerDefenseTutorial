@@ -1,27 +1,27 @@
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class BuildManager : MonoBehaviour
 {
     public static BuildManager Instance;
 
-    public GameObject standardTurretPrefab;
-    [FormerlySerializedAs("anotherTurretPrefab")]
-    public GameObject missileLauncherPrefab;
-    private GameObject _turretToBuild;
+    private TurretBlueprint _turretToBuild;
+    public bool CanBuild => _turretToBuild != null;
 
     private void Awake()
     {
         if (Instance == null) Instance = this;
     }
 
-    public void SetTurretToBuild(GameObject turret)
+    public void SetTurretToBuild(TurretBlueprint turret)
     {
         _turretToBuild = turret;
     }
 
-    public GameObject GetTurretToBuild()
+    public void BuildTurretOn(Node node)
     {
-        return _turretToBuild;
+        if (PlayerStats.Money < _turretToBuild.cost) return;
+        node.turret = Instantiate(_turretToBuild.prefab, node.GetBuildPosition(), Quaternion.identity);
+        PlayerStats.Money -= _turretToBuild.cost;
+        Debug.Log("Turret built! Money left: " + PlayerStats.Money);
     }
 }
