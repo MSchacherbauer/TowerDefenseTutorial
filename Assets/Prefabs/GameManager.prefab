@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4256230092147472250}
   - component: {fileID: 4256230092147472253}
   - component: {fileID: 4256230092147472251}
+  - component: {fileID: 1815097116894697817}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -62,5 +63,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5636bf3c6bf430546a4a0c6e2fedeade, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  standardTurretPrefab: {fileID: 3823144712712559366, guid: f342ff4d171446847bc943f868f84b51, type: 3}
-  anotherTurretPrefab: {fileID: 5499774059401949322, guid: 3c0206106a390134b891f482269a516d, type: 3}
+  buildEffectPrefab: {fileID: 8380752310251117825, guid: 1c2c3f31d2f4fe54081002e14e010312, type: 3}
+--- !u!114 &1815097116894697817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4256230092147472252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09167176d8b6b914ab9999a701778427, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

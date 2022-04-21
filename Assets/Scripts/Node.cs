@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Serialization;
@@ -50,5 +51,10 @@ public class Node : MonoBehaviour
     private static bool IsPointerOverGameObject()
     {
         return EventSystem.current.IsPointerOverGameObject();
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log(collision.collider.gameObject + " hit GroundPlane");
     }
 }

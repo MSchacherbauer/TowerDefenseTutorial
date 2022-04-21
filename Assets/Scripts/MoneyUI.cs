@@ -10,7 +10,7 @@ public class MoneyUI : MonoBehaviour
 
     private void Update()
     {
-        wavecountdownText.text = "$"+PlayerStats.Money.ToString();
+        wavecountdownText.text = "$"+PlayerStats.Money;
     }
 }
 

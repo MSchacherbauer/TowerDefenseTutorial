@@ -7,6 +7,7 @@ public class Bullet : MonoBehaviour
     public GameObject impactEffect;
     [FormerlySerializedAs("ExplosionRadius")]
     public float explosionRadius = 5f;
+    public int damage = 50;
     public Transform Target { get; set; }
 
 
@@ -50,11 +51,12 @@ public class Bullet : MonoBehaviour
     {
         foreach (var objectsInSphere in Physics.OverlapSphere(transform.position, explosionRadius))
             if (objectsInSphere.tag.Equals(Enemy.EnemyTag))
-                Destroy(objectsInSphere.gameObject);
+                Damage();
     }
 
     private void Damage()
     {
-        Destroy(Target.gameObject);
+        var enemy = Target.GetComponent<Enemy>();
+        if (enemy != null) enemy.TakeDamage(damage);
     }
 }
