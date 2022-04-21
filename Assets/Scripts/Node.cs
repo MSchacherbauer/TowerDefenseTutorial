@@ -34,7 +34,7 @@ public class Node : MonoBehaviour
         if (IsPointerOverGameObject()) return;
         if (!_buildManager.CanBuild) return;
         if (turret != null) return;
-        _renderer.material.color = hoverColor;
+        _renderer.material.color = _buildManager.HasMoney ? hoverColor : Color.red;
     }
 
     private void OnMouseExit()

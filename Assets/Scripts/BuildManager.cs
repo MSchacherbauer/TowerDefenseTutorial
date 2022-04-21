@@ -6,6 +6,8 @@ public class BuildManager : MonoBehaviour
 
     private TurretBlueprint _turretToBuild;
     public bool CanBuild => _turretToBuild != null;
+    public bool HasMoney => PlayerStats.Money >= _turretToBuild.cost;
+
 
     private void Awake()
     {
