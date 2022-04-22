@@ -1,18 +1,25 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Turret : MonoBehaviour
 {
-    [Header("Attributes")]
+    [Header("General")]
     public float range = 15f;
     public float turnSpeed = 5f;
-    public float fireRate = 1f;
+    private Transform _target;
 
     [Header("Unity Setup fields")]
     public Transform partToRotate;
-    public GameObject projectile;
     public Transform firePoint;
+    [Header("Use Bullets (default)")]
+    public float fireRate = 1f;
+    public GameObject projectile;
     private float _fireCountdown;
-    private Transform _target;
+
+    [Header("UseLaser")]
+    public bool useLaser = false;
+    public LineRenderer lineRenderer;
+
 
     private void Start()
     {
@@ -21,16 +28,31 @@ public class Turret : MonoBehaviour
 
     private void Update()
     {
-        if (_target == null) return;
-
+        if (_target == null)
+        {
+            if (useLaser)
+            {
+                lineRenderer.enabled = false;
+            }
+            return;
+        }
         FaceTarget();
-        if (_fireCountdown <= 0)
+        if (useLaser)
+        {
+            Laser();
+        }
+        else
         {
             Shoot();
-            _fireCountdown = 1f / fireRate;
         }
+    }
 
-        _fireCountdown -= Time.deltaTime;
+    private void Laser()
+    {
+        
+        lineRenderer.enabled = true;
+        lineRenderer.SetPosition(0, firePoint.position);
+        lineRenderer.SetPosition(1, _target.position);
     }
 
     private void OnDrawGizmosSelected()
@@ -41,9 +63,14 @@ public class Turret : MonoBehaviour
 
     private void Shoot()
     {
-        var bulletGameObject = Instantiate(projectile, firePoint.position, firePoint.rotation);
-        var bullet = bulletGameObject.GetComponent<Bullet>();
-        if (bullet != null) bullet.Target = _target;
+        if (_fireCountdown <= 0)
+        {
+            var bulletGameObject = Instantiate(projectile, firePoint.position, firePoint.rotation);
+            var bullet = bulletGameObject.GetComponent<Bullet>();
+            if (bullet != null) bullet.Target = _target;
+            _fireCountdown = 1f / fireRate;
+        }
+        _fireCountdown -= Time.deltaTime;
     }
 
     private void FaceTarget()
