@@ -170,6 +170,8 @@ MonoBehaviour:
   projectile: {fileID: 9122712303211650092, guid: 55de2368024fc0843ac3168f7d726357, type: 3}
   useLaser: 1
   lineRenderer: {fileID: 4886893615014644217}
+  laserImpact: {fileID: 6977963929544506671}
+  laserImpactActive: 0
 --- !u!120 &4886893615014644217
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -222,7 +224,7 @@ LineRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.35897437
+        value: 0.20512763
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -231,7 +233,7 @@ LineRenderer:
         outWeight: 0
       - serializedVersion: 3
         time: 1
-        value: 0.38974357
+        value: 0.21025443
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -243,8 +245,8 @@ LineRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 0.08363296, b: 0, a: 0.43137255}
-      key1: {r: 1, g: 0.61737454, b: 0, a: 1}
+      key0: {r: 0, g: 1, b: 0.054581404, a: 1}
+      key1: {r: 0.15395391, g: 1, b: 0, a: 1}
       key2: {r: 1, g: 1, b: 1, a: 1}
       key3: {r: 1, g: 1, b: 1, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -260,7 +262,7 @@ LineRenderer:
       ctime6: 0
       ctime7: 0
       atime0: 0
-      atime1: 47224
+      atime1: 65535
       atime2: 65535
       atime3: 0
       atime4: 0
@@ -393,6 +395,78 @@ Transform:
   m_Children:
   - {fileID: 3226897746668201328}
   - {fileID: 4698881575768319989}
+  - {fileID: 7100453464886158231}
   m_Father: {fileID: 5004383297379823076}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+--- !u!1001 &2971457630322853459
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 5525903798610552203}
+    m_Modifications:
+    - target: {fileID: 5455367914355926468, guid: dd19bf83b104f594da5465ea019e7eec, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5455367914355926468, guid: dd19bf83b104f594da5465ea019e7eec, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5455367914355926468, guid: dd19bf83b104f594da5465ea019e7eec, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5455367914355926468, guid: dd19bf83b104f594da5465ea019e7eec, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5455367914355926468, guid: dd19bf83b104f594da5465ea019e7eec, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5455367914355926468, guid: dd19bf83b104f594da5465ea019e7eec, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5455367914355926468, guid: dd19bf83b104f594da5465ea019e7eec, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5455367914355926468, guid: dd19bf83b104f594da5465ea019e7eec, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5455367914355926468, guid: dd19bf83b104f594da5465ea019e7eec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5455367914355926468, guid: dd19bf83b104f594da5465ea019e7eec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5455367914355926468, guid: dd19bf83b104f594da5465ea019e7eec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5455367914355926468, guid: dd19bf83b104f594da5465ea019e7eec, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8964423942204756370, guid: dd19bf83b104f594da5465ea019e7eec, type: 3}
+      propertyPath: m_Name
+      value: LaserImpatEffect
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: dd19bf83b104f594da5465ea019e7eec, type: 3}
+--- !u!198 &6977963929544506671 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 5326080236863470460, guid: dd19bf83b104f594da5465ea019e7eec, type: 3}
+  m_PrefabInstance: {fileID: 2971457630322853459}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &7100453464886158231 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5455367914355926468, guid: dd19bf83b104f594da5465ea019e7eec, type: 3}
+  m_PrefabInstance: {fileID: 2971457630322853459}
+  m_PrefabAsset: {fileID: 0}

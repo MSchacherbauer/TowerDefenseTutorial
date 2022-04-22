@@ -1,3 +1,4 @@
+using TMPro.Examples;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -19,11 +20,14 @@ public class Turret : MonoBehaviour
     [Header("UseLaser")]
     public bool useLaser = false;
     public LineRenderer lineRenderer;
+    public ParticleSystem laserImpact;
+    private Light _impactLight;
 
 
     private void Start()
     {
         InvokeRepeating(nameof(UpdateTarget), 0f, 0.5f);
+        _impactLight = laserImpact.GetComponentInChildren<Light>();
     }
 
     private void Update()
@@ -33,6 +37,8 @@ public class Turret : MonoBehaviour
             if (useLaser)
             {
                 lineRenderer.enabled = false;
+                laserImpact.Pause();
+                _impactLight.enabled = false;
             }
             return;
         }
@@ -51,8 +57,17 @@ public class Turret : MonoBehaviour
     {
         
         lineRenderer.enabled = true;
+
+        var dir = firePoint.position - _target.position;
+        laserImpact.transform.position = _target.position + dir.normalized;
+        laserImpact.transform.rotation = Quaternion.LookRotation(dir);
+        laserImpact.Play();
+        _impactLight.enabled = true;
+        
+        
         lineRenderer.SetPosition(0, firePoint.position);
         lineRenderer.SetPosition(1, _target.position);
+        
     }
 
     private void OnDrawGizmosSelected()
