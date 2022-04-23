@@ -8,6 +8,7 @@ public class Turret : MonoBehaviour
     public float range = 15f;
     public float turnSpeed = 5f;
     private Transform _target;
+    private Enemy _enemy;
 
     [Header("Unity Setup fields")]
     public Transform partToRotate;
@@ -21,7 +22,9 @@ public class Turret : MonoBehaviour
     public bool useLaser = false;
     public LineRenderer lineRenderer;
     public ParticleSystem laserImpact;
+    public int damageOverTime = 50;
     private Light _impactLight;
+    public float slowPercentage=.5f;
 
 
     private void Start()
@@ -55,19 +58,21 @@ public class Turret : MonoBehaviour
 
     private void Laser()
     {
-        
-        lineRenderer.enabled = true;
+        _enemy.TakeDamage(damageOverTime * Time.deltaTime);
+        _enemy.Slow(slowPercentage);
+        RenderLaser();
+    }
 
+    private void RenderLaser()
+    {
+        lineRenderer.enabled = true;
         var dir = firePoint.position - _target.position;
         laserImpact.transform.position = _target.position + dir.normalized;
         laserImpact.transform.rotation = Quaternion.LookRotation(dir);
         laserImpact.Play();
         _impactLight.enabled = true;
-        
-        
         lineRenderer.SetPosition(0, firePoint.position);
         lineRenderer.SetPosition(1, _target.position);
-        
     }
 
     private void OnDrawGizmosSelected()
@@ -111,7 +116,10 @@ public class Turret : MonoBehaviour
             }
 
             if (closestEnemy != null && minDistance <= range)
+            {
                 _target = closestEnemy.transform;
+                _enemy = _target.GetComponent<Enemy>();
+            }
             else
                 _target = null;
         }
